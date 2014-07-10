@@ -169,6 +169,15 @@ ClientState;
 #ifdef DEBUG
 	NSLog(@"MatchmakingClient: session failed %@", error);
 #endif
+    
+    if ([[error domain] isEqualToString:GKSessionErrorDomain])
+	{
+		if ([error code] == GKSessionCannotEnableError)
+		{
+			[self.delegate matchmakingClientNoNetwork:self];
+			[self disconnectFromServer];
+		}
+	}
 }
 
 @end
