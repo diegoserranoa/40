@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0A98574196B46D300C676CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98573196B46D300C676CF /* Foundation.framework */; };
+		D0A98576196B46D300C676CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98575196B46D300C676CF /* CoreGraphics.framework */; };
+		D0A98578196B46D300C676CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98577196B46D300C676CF /* UIKit.framework */; };
+		D0A9857E196B46D300C676CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0A9857C196B46D300C676CF /* InfoPlist.strings */; };
+		D0A98580196B46D300C676CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A9857F196B46D300C676CF /* main.m */; };
+		D0A98584196B46D300C676CF /* CuarentaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A98583196B46D300C676CF /* CuarentaAppDelegate.m */; };
+		D0A98587196B46D300C676CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A98585196B46D300C676CF /* Main.storyboard */; };
+		D0A9858A196B46D300C676CF /* CuarentaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A98589196B46D300C676CF /* CuarentaViewController.m */; };
+		D0A9858C196B46D300C676CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A9858B196B46D300C676CF /* Images.xcassets */; };
+		D0A98593196B46D300C676CF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98592196B46D300C676CF /* XCTest.framework */; };
+		D0A98594196B46D300C676CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98573196B46D300C676CF /* Foundation.framework */; };
+		D0A98595196B46D300C676CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A98577196B46D300C676CF /* UIKit.framework */; };
+		D0A9859D196B46D300C676CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0A9859B196B46D300C676CF /* InfoPlist.strings */; };
+		D0A9859F196B46D300C676CF /* Cuarenta_UIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A9859E196B46D300C676CF /* Cuarenta_UIKitTests.m */; };
+		D0A985B4196B554600C676CF /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985B3196B554600C676CF /* HostViewController.m */; };
+		D0A985B8196B556600C676CF /* HostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985B7196B556600C676CF /* HostTableViewController.m */; };
+		D0A985BC196B5C7700C676CF /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985BB196B5C7700C676CF /* JoinViewController.m */; };
+		D0A985C0196B5C8E00C676CF /* JoinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985BF196B5C8E00C676CF /* JoinTableViewController.m */; };
+		D0A985C3196B5EEE00C676CF /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985C2196B5EEE00C676CF /* LoadingViewController.m */; };
+		D0A985C5196B5F6800C676CF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A985C4196B5F6800C676CF /* GameKit.framework */; };
+		D0A985C7196B5F7E00C676CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A985C6196B5F7E00C676CF /* AVFoundation.framework */; };
+		D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CA196B608900C676CF /* MatchmakingServer.m */; };
+		D0A985CE196B62F500C676CF /* MatchmakingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CD196B62F500C676CF /* MatchmakingClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0A98596196B46D300C676CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0A98568196B46D300C676CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0A9856F196B46D300C676CF;
+			remoteInfo = Cuarenta_UIKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D0A98570196B46D300C676CF /* Cuarenta_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuarenta_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A98573196B46D300C676CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D0A98575196B46D300C676CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D0A98577196B46D300C676CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D0A9857B196B46D300C676CF /* Cuarenta_UIKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cuarenta_UIKit-Info.plist"; sourceTree = "<group>"; };
+		D0A9857D196B46D300C676CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0A9857F196B46D300C676CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0A98581196B46D300C676CF /* Cuarenta_UIKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cuarenta_UIKit-Prefix.pch"; sourceTree = "<group>"; };
+		D0A98582196B46D300C676CF /* CuarentaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuarentaAppDelegate.h; sourceTree = "<group>"; };
+		D0A98583196B46D300C676CF /* CuarentaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CuarentaAppDelegate.m; sourceTree = "<group>"; };
+		D0A98586196B46D300C676CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0A98588196B46D300C676CF /* CuarentaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuarentaViewController.h; sourceTree = "<group>"; };
+		D0A98589196B46D300C676CF /* CuarentaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CuarentaViewController.m; sourceTree = "<group>"; };
+		D0A9858B196B46D300C676CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D0A98591196B46D300C676CF /* Cuarenta_UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cuarenta_UIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A98592196B46D300C676CF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D0A9859A196B46D300C676CF /* Cuarenta_UIKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cuarenta_UIKitTests-Info.plist"; sourceTree = "<group>"; };
+		D0A9859C196B46D300C676CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0A9859E196B46D300C676CF /* Cuarenta_UIKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cuarenta_UIKitTests.m; sourceTree = "<group>"; };
+		D0A985B2196B554500C676CF /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		D0A985B3196B554600C676CF /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		D0A985B6196B556600C676CF /* HostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostTableViewController.h; sourceTree = "<group>"; };
+		D0A985B7196B556600C676CF /* HostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostTableViewController.m; sourceTree = "<group>"; };
+		D0A985BA196B5C7700C676CF /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		D0A985BB196B5C7700C676CF /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		D0A985BE196B5C8E00C676CF /* JoinTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinTableViewController.h; sourceTree = "<group>"; };
+		D0A985BF196B5C8E00C676CF /* JoinTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinTableViewController.m; sourceTree = "<group>"; };
+		D0A985C1196B5EEE00C676CF /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		D0A985C2196B5EEE00C676CF /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		D0A985C4196B5F6800C676CF /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		D0A985C6196B5F7E00C676CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D0A985C9196B608900C676CF /* MatchmakingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingServer.h; sourceTree = "<group>"; };
+		D0A985CA196B608900C676CF /* MatchmakingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingServer.m; sourceTree = "<group>"; };
+		D0A985CC196B62F500C676CF /* MatchmakingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingClient.h; sourceTree = "<group>"; };
+		D0A985CD196B62F500C676CF /* MatchmakingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingClient.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0A9856D196B46D300C676CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A985C7196B5F7E00C676CF /* AVFoundation.framework in Frameworks */,
+				D0A985C5196B5F6800C676CF /* GameKit.framework in Frameworks */,
+				D0A98576196B46D300C676CF /* CoreGraphics.framework in Frameworks */,
+				D0A98578196B46D300C676CF /* UIKit.framework in Frameworks */,
+				D0A98574196B46D300C676CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0A9858E196B46D300C676CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A98593196B46D300C676CF /* XCTest.framework in Frameworks */,
+				D0A98595196B46D300C676CF /* UIKit.framework in Frameworks */,
+				D0A98594196B46D300C676CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0A98567196B46D300C676CF = {
+			isa = PBXGroup;
+			children = (
+				D0A98579196B46D300C676CF /* Cuarenta_UIKit */,
+				D0A98598196B46D300C676CF /* Cuarenta_UIKitTests */,
+				D0A98572196B46D300C676CF /* Frameworks */,
+				D0A98571196B46D300C676CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0A98571196B46D300C676CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0A98570196B46D300C676CF /* Cuarenta_UIKit.app */,
+				D0A98591196B46D300C676CF /* Cuarenta_UIKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0A98572196B46D300C676CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985C6196B5F7E00C676CF /* AVFoundation.framework */,
+				D0A985C4196B5F6800C676CF /* GameKit.framework */,
+				D0A98573196B46D300C676CF /* Foundation.framework */,
+				D0A98575196B46D300C676CF /* CoreGraphics.framework */,
+				D0A98577196B46D300C676CF /* UIKit.framework */,
+				D0A98592196B46D300C676CF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0A98579196B46D300C676CF /* Cuarenta_UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985C8196B607500C676CF /* GameKit */,
+				D0A985B9196B5C6500C676CF /* Join */,
+				D0A985B1196B552C00C676CF /* Host */,
+				D0A98582196B46D300C676CF /* CuarentaAppDelegate.h */,
+				D0A98583196B46D300C676CF /* CuarentaAppDelegate.m */,
+				D0A98585196B46D300C676CF /* Main.storyboard */,
+				D0A98588196B46D300C676CF /* CuarentaViewController.h */,
+				D0A98589196B46D300C676CF /* CuarentaViewController.m */,
+				D0A9858B196B46D300C676CF /* Images.xcassets */,
+				D0A9857A196B46D300C676CF /* Supporting Files */,
+			);
+			path = Cuarenta_UIKit;
+			sourceTree = "<group>";
+		};
+		D0A9857A196B46D300C676CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0A9857B196B46D300C676CF /* Cuarenta_UIKit-Info.plist */,
+				D0A9857C196B46D300C676CF /* InfoPlist.strings */,
+				D0A9857F196B46D300C676CF /* main.m */,
+				D0A98581196B46D300C676CF /* Cuarenta_UIKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0A98598196B46D300C676CF /* Cuarenta_UIKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0A9859E196B46D300C676CF /* Cuarenta_UIKitTests.m */,
+				D0A98599196B46D300C676CF /* Supporting Files */,
+			);
+			path = Cuarenta_UIKitTests;
+			sourceTree = "<group>";
+		};
+		D0A98599196B46D300C676CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0A9859A196B46D300C676CF /* Cuarenta_UIKitTests-Info.plist */,
+				D0A9859B196B46D300C676CF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0A985B1196B552C00C676CF /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985B5196B554E00C676CF /* HostTable */,
+				D0A985B2196B554500C676CF /* HostViewController.h */,
+				D0A985B3196B554600C676CF /* HostViewController.m */,
+			);
+			name = Host;
+			sourceTree = "<group>";
+		};
+		D0A985B5196B554E00C676CF /* HostTable */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985B6196B556600C676CF /* HostTableViewController.h */,
+				D0A985B7196B556600C676CF /* HostTableViewController.m */,
+			);
+			name = HostTable;
+			sourceTree = "<group>";
+		};
+		D0A985B9196B5C6500C676CF /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985BD196B5C7B00C676CF /* JoinTable */,
+				D0A985BA196B5C7700C676CF /* JoinViewController.h */,
+				D0A985BB196B5C7700C676CF /* JoinViewController.m */,
+				D0A985C1196B5EEE00C676CF /* LoadingViewController.h */,
+				D0A985C2196B5EEE00C676CF /* LoadingViewController.m */,
+			);
+			name = Join;
+			sourceTree = "<group>";
+		};
+		D0A985BD196B5C7B00C676CF /* JoinTable */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985BE196B5C8E00C676CF /* JoinTableViewController.h */,
+				D0A985BF196B5C8E00C676CF /* JoinTableViewController.m */,
+			);
+			name = JoinTable;
+			sourceTree = "<group>";
+		};
+		D0A985C8196B607500C676CF /* GameKit */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985C9196B608900C676CF /* MatchmakingServer.h */,
+				D0A985CA196B608900C676CF /* MatchmakingServer.m */,
+				D0A985CC196B62F500C676CF /* MatchmakingClient.h */,
+				D0A985CD196B62F500C676CF /* MatchmakingClient.m */,
+			);
+			name = GameKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0A9856F196B46D300C676CF /* Cuarenta_UIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0A985A2196B46D300C676CF /* Build configuration list for PBXNativeTarget "Cuarenta_UIKit" */;
+			buildPhases = (
+				D0A9856C196B46D300C676CF /* Sources */,
+				D0A9856D196B46D300C676CF /* Frameworks */,
+				D0A9856E196B46D300C676CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cuarenta_UIKit;
+			productName = Cuarenta_UIKit;
+			productReference = D0A98570196B46D300C676CF /* Cuarenta_UIKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0A98590196B46D300C676CF /* Cuarenta_UIKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0A985A5196B46D300C676CF /* Build configuration list for PBXNativeTarget "Cuarenta_UIKitTests" */;
+			buildPhases = (
+				D0A9858D196B46D300C676CF /* Sources */,
+				D0A9858E196B46D300C676CF /* Frameworks */,
+				D0A9858F196B46D300C676CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0A98597196B46D300C676CF /* PBXTargetDependency */,
+			);
+			name = Cuarenta_UIKitTests;
+			productName = Cuarenta_UIKitTests;
+			productReference = D0A98591196B46D300C676CF /* Cuarenta_UIKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0A98568196B46D300C676CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Cuarenta;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Brounie;
+				TargetAttributes = {
+					D0A98590196B46D300C676CF = {
+						TestTargetID = D0A9856F196B46D300C676CF;
+					};
+				};
+			};
+			buildConfigurationList = D0A9856B196B46D300C676CF /* Build configuration list for PBXProject "Cuarenta_UIKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0A98567196B46D300C676CF;
+			productRefGroup = D0A98571196B46D300C676CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0A9856F196B46D300C676CF /* Cuarenta_UIKit */,
+				D0A98590196B46D300C676CF /* Cuarenta_UIKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0A9856E196B46D300C676CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A9858C196B46D300C676CF /* Images.xcassets in Resources */,
+				D0A9857E196B46D300C676CF /* InfoPlist.strings in Resources */,
+				D0A98587196B46D300C676CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0A9858F196B46D300C676CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A9859D196B46D300C676CF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0A9856C196B46D300C676CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A985B4196B554600C676CF /* HostViewController.m in Sources */,
+				D0A985B8196B556600C676CF /* HostTableViewController.m in Sources */,
+				D0A985C0196B5C8E00C676CF /* JoinTableViewController.m in Sources */,
+				D0A985CE196B62F500C676CF /* MatchmakingClient.m in Sources */,
+				D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */,
+				D0A98580196B46D300C676CF /* main.m in Sources */,
+				D0A98584196B46D300C676CF /* CuarentaAppDelegate.m in Sources */,
+				D0A985BC196B5C7700C676CF /* JoinViewController.m in Sources */,
+				D0A9858A196B46D300C676CF /* CuarentaViewController.m in Sources */,
+				D0A985C3196B5EEE00C676CF /* LoadingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0A9858D196B46D300C676CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0A9859F196B46D300C676CF /* Cuarenta_UIKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0A98597196B46D300C676CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0A9856F196B46D300C676CF /* Cuarenta_UIKit */;
+			targetProxy = D0A98596196B46D300C676CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0A9857C196B46D300C676CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0A9857D196B46D300C676CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D0A98585196B46D300C676CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0A98586196B46D300C676CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D0A9859B196B46D300C676CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0A9859C196B46D300C676CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0A985A0196B46D300C676CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D0A985A1196B46D300C676CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D0A985A3196B46D300C676CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuarenta_UIKit/Cuarenta_UIKit-Prefix.pch";
+				INFOPLIST_FILE = "Cuarenta_UIKit/Cuarenta_UIKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0A985A4196B46D300C676CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuarenta_UIKit/Cuarenta_UIKit-Prefix.pch";
+				INFOPLIST_FILE = "Cuarenta_UIKit/Cuarenta_UIKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D0A985A6196B46D300C676CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cuarenta_UIKit.app/Cuarenta_UIKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuarenta_UIKit/Cuarenta_UIKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Cuarenta_UIKitTests/Cuarenta_UIKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D0A985A7196B46D300C676CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cuarenta_UIKit.app/Cuarenta_UIKit";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuarenta_UIKit/Cuarenta_UIKit-Prefix.pch";
+				INFOPLIST_FILE = "Cuarenta_UIKitTests/Cuarenta_UIKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0A9856B196B46D300C676CF /* Build configuration list for PBXProject "Cuarenta_UIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0A985A0196B46D300C676CF /* Debug */,
+				D0A985A1196B46D300C676CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0A985A2196B46D300C676CF /* Build configuration list for PBXNativeTarget "Cuarenta_UIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0A985A3196B46D300C676CF /* Debug */,
+				D0A985A4196B46D300C676CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0A985A5196B46D300C676CF /* Build configuration list for PBXNativeTarget "Cuarenta_UIKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0A985A6196B46D300C676CF /* Debug */,
+				D0A985A7196B46D300C676CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0A98568196B46D300C676CF /* Project object */;
+}
