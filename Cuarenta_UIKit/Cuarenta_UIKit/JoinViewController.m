@@ -7,7 +7,6 @@
 //
 
 #import "JoinViewController.h"
-#import "LoadingViewController.h"
 
 @interface JoinViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
@@ -22,9 +21,6 @@
 {
 	MatchmakingClient *matchmakingClient;
 	QuitReason quitReason;
-    GKSession *session;
-    NSString *nameString;
-    NSString *peerIDString;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,7 +36,17 @@
 {
 	[super viewDidAppear:animated];
     
-    [self reloadData];
+	if (matchmakingClient == nil)
+	{
+		quitReason = QuitReasonConnectionDropped;
+        
+		matchmakingClient = [[MatchmakingClient alloc] init];
+        matchmakingClient.delegate = self;
+		[matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
+        
+		self.nameTextField.placeholder = matchmakingClient.session.displayName;
+        [self reloadData];
+	}
 }
 
 - (void)viewDidLoad
@@ -142,32 +148,6 @@
              [self showDisconnectedAlert];
          }];
 	}
-}
-
-- (void)joinViewController:(JoinViewController *)controller startGameWithSession:(GKSession *)session playerName:(NSString *)name server:(NSString *)peerID
-{
-    
-	//[self performSegueWithIdentifier:@"joinSegue" sender:self];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    LoadingViewController *loadingViewController = (LoadingViewController *)[segue destinationViewController];
-    loadingViewController.session = session;
-    loadingViewController.name = nameString;
-    loadingViewController.peerID = peerIDString;
-}
-
-- (void)matchmakingClient:(MatchmakingClient *)client didConnectToServer:(NSString *)peerID
-{
-	NSString *name = [self.nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	if ([name length] == 0)
-		name = matchmakingClient.session.displayName;
-    
-    session = matchmakingClient.session;
-    nameString = name;
-    peerIDString = peerID;
-	//[self joinViewController:self startGameWithSession:matchmakingClient.session playerName:name server:peerID];
 }
 
 - (void)showDisconnectedAlert

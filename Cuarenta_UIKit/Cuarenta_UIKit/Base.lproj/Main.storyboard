@@ -164,7 +164,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startAction:" destination="Waf-Ka-O1U" eventType="touchUpInside" id="ezW-PU-O31"/>
-                                    <segue destination="Wkp-ah-fmH" kind="modal" identifier="hostSegue" id="o0H-RY-tQL"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableViewBorder" translatesAutoresizingMaskIntoConstraints="NO" id="lVx-lw-URW">
@@ -312,52 +311,6 @@
             </objects>
             <point key="canvasLocation" x="1837" y="-172"/>
         </scene>
-        <!--Game View Controller-->
-        <scene sceneID="bAd-3J-tMB">
-            <objects>
-                <viewController id="Wkp-ah-fmH" customClass="GameViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fQM-zM-vNF"/>
-                        <viewControllerLayoutGuide type="bottom" id="GQ0-0B-Dem"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qh9-OA-AJZ">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Felt" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-D1-gK9">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehb-nT-Wee">
-                                <rect key="frame" x="20" y="270" width="28" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ExitButton">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitAction:" destination="Wkp-ah-fmH" eventType="touchUpInside" id="ZdN-Mx-ZDN"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Center Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qr9-lu-Tao">
-                                <rect key="frame" x="189" y="149" width="190" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="centerLabel" destination="Qr9-lu-Tao" id="Wn3-Nx-KI1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y9I-Pu-n8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3582" y="-162"/>
-        </scene>
         <!--Loading View Controller-->
         <scene sceneID="pnR-iG-oIL">
             <objects>
@@ -398,12 +351,11 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="loadingLabel" destination="D3w-6h-osC" id="jza-EK-JkJ"/>
-                        <segue destination="Wkp-ah-fmH" kind="modal" identifier="clientSegue" id="Hca-ep-09I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bit-5C-Kmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="186"/>
+            <point key="canvasLocation" x="2453" y="186"/>
         </scene>
         <!--Join Table View Controller-->
         <scene sceneID="ggR-nl-dWr">
@@ -454,7 +406,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Hca-ep-09I"/>
-    </inferredMetricsTieBreakers>
 </document>

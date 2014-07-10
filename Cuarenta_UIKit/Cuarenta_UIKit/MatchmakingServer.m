@@ -80,14 +80,6 @@ ServerState;
 	[self.delegate matchmakingServerSessionDidEnd:self];
 }
 
-- (void)stopAcceptingConnections
-{
-	NSAssert(serverState == ServerStateAcceptingConnections, @"Wrong state");
-    
-	serverState = ServerStateIgnoringNewConnections;
-	_session.available = NO;
-}
-
 #pragma mark - GKSessionDelegate
 
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state

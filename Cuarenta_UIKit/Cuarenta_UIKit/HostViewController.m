@@ -24,9 +24,6 @@
 @implementation HostViewController{
     MatchmakingServer *matchmakingServer;
 	QuitReason quitReason;
-    GKSession *session;
-    NSString *nameString;
-    NSArray *clients;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,7 +39,23 @@
 {
 	[super viewDidAppear:animated];
     
-	[self reloadData];
+	if (matchmakingServer == nil)
+	{
+		matchmakingServer = [[MatchmakingServer alloc] init];
+        matchmakingServer.delegate = self;
+		matchmakingServer.maxClients = 3;
+		[matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
+        
+		self.nameTextField.placeholder = matchmakingServer.session.displayName;
+        /* reload Data
+        NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+        [userInfo setObject:sucursales forKey:@"sucursales"];
+        
+        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+        [nc postNotificationName:@"ReloadSucursales" object:self userInfo:userInfo];
+		*/
+        //[xºself.tableView reloadData];
+	}
 }
 
 - (void)viewDidLoad
@@ -62,19 +75,7 @@
 }
 
 - (IBAction)startAction:(UIButton *)sender {
-    if (matchmakingServer != nil && [matchmakingServer connectedClientCount] > 0)
-	{
-		NSString *name = [self.nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-		if ([name length] == 0)
-			name = matchmakingServer.session.displayName;
-        
-		[matchmakingServer stopAcceptingConnections];
-        
-        [self performSegueWithIdentifier:@"hostSegue" sender:self];
-        session = matchmakingServer.session;
-        nameString = name;
-        clients = matchmakingServer.connectedClients;
-    }
+
 }
 
 - (IBAction)exitAction:(UIButton *)sender {
@@ -85,15 +86,6 @@
 
 - (void)reloadData
 {
-    if (matchmakingServer == nil)
-	{
-		matchmakingServer = [[MatchmakingServer alloc] init];
-        matchmakingServer.delegate = self;
-		matchmakingServer.maxClients = 3;
-		[matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
-        
-		self.nameTextField.placeholder = matchmakingServer.session.displayName;
-	}
     // reload Data
     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:matchmakingServer forKey:@"matchmakingServer"];

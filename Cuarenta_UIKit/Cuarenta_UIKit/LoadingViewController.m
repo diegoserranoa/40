@@ -7,8 +7,6 @@
 //
 
 #import "LoadingViewController.h"
-#import "GameViewController.h"
-#import "Game.h"
 
 @interface LoadingViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
@@ -36,15 +34,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-     GameViewController *gameViewController = (GameViewController *)[segue destinationViewController];
-     
-     Game *game = [[Game alloc] init];
-     gameViewController.game = game;
-     game.delegate = gameViewController;
 }
 
 - (IBAction)exitAction:(UIButton *)sender {
