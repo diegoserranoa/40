@@ -80,7 +80,7 @@
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil)
-		cell = [[PeerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
 	NSString *peerID = [matchmakingServer peerIDForConnectedClientAtIndex:indexPath.row];
 	cell.textLabel.text = [matchmakingServer displayNameForPeerID:peerID];

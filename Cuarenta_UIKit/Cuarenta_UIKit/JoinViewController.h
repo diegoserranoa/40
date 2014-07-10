@@ -11,4 +11,6 @@
 
 @interface JoinViewController : UIViewController<UITextFieldDelegate, MatchmakingClientDelegate>
 
+- (void)joinViewController:(JoinViewController *)controller didDisconnectWithReason:(QuitReason)reason;
+
 @end

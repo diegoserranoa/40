@@ -20,6 +20,7 @@
 @implementation JoinViewController
 {
 	MatchmakingClient *matchmakingClient;
+	QuitReason quitReason;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +38,8 @@
     
 	if (matchmakingClient == nil)
 	{
+		quitReason = QuitReasonConnectionDropped;
+        
 		matchmakingClient = [[MatchmakingClient alloc] init];
         matchmakingClient.delegate = self;
 		[matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
@@ -50,6 +53,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(disconnect:)
+                                                 name:@"QuitReasonUserQuit"
+                                               object:nil];
     
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.nameTextField action:@selector(resignFirstResponder)];
 	gestureRecognizer.cancelsTouchesInView = NO;
@@ -68,12 +76,28 @@
 
 - (void)reloadData
 {
+    if (matchmakingClient == nil)
+	{
+		quitReason = QuitReasonConnectionDropped;
+        
+		matchmakingClient = [[MatchmakingClient alloc] init];
+        matchmakingClient.delegate = self;
+		[matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
+        
+		self.nameTextField.placeholder = matchmakingClient.session.displayName;
+	}
+    
     // reload Data
     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:matchmakingClient forKey:@"matchmakingClient"];
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:@"ReloadJoin" object:self userInfo:userInfo];
+}
+
+-(void)disconnect:(NSNotification *) notification {
+    quitReason = QuitReasonUserQuit;
+    [matchmakingClient disconnectFromServer];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -96,6 +120,34 @@
 {
     // Reload Data
 	[self reloadData];
+}
+
+- (void)matchmakingClient:(MatchmakingClient *)client didDisconnectFromServer:(NSString *)peerID
+{
+	matchmakingClient.delegate = nil;
+	matchmakingClient = nil;
+    [self reloadData];
+	[self joinViewController:self didDisconnectWithReason:quitReason];
+}
+
+- (void)joinViewController:(JoinViewController *)controller didDisconnectWithReason:(QuitReason)reason
+{
+	if (reason == QuitReasonConnectionDropped)
+	{
+        [self showDisconnectedAlert];
+	}
+}
+
+- (void)showDisconnectedAlert
+{
+	UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"Disconnected", @"Client disconnected alert title")
+                              message:NSLocalizedString(@"You were disconnected from the game.", @"Client disconnected alert message")
+                              delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", @"Button: OK")
+                              otherButtonTitles:nil];
+    
+	[alertView show];
 }
 
 @end

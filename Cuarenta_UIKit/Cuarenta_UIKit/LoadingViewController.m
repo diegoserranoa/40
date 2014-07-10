@@ -38,7 +38,9 @@
 
 - (IBAction)exitAction:(UIButton *)sender {
     // kill connection
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"QuitReasonUserQuit" object:self];
+    }];
 }
 
 @end
