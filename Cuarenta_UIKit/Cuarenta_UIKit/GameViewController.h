@@ -22,4 +22,6 @@
 @property (nonatomic, weak) id <GameViewControllerDelegate> delegate;
 @property (nonatomic, strong) Game *game;
 
+@property ()
+
 @end

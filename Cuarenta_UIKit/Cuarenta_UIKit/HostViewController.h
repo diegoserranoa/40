@@ -12,5 +12,6 @@
 @interface HostViewController : UIViewController<UITextFieldDelegate, MatchmakingServerDelegate>
 
 - (void)hostViewController:(HostViewController *)controller didEndSessionWithReason:(QuitReason)reason;
+- (void)hostViewController:(HostViewController *)controller startGameWithSession:(GKSession *)session playerName:(NSString *)name clients:(NSArray *)clients;
 
 @end

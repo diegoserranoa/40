@@ -24,6 +24,9 @@
 @implementation HostViewController{
     MatchmakingServer *matchmakingServer;
 	QuitReason quitReason;
+    GKSession *session;
+    NSString *nameString;
+    NSArray *clients;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,7 +62,19 @@
 }
 
 - (IBAction)startAction:(UIButton *)sender {
-
+    if (matchmakingServer != nil && [matchmakingServer connectedClientCount] > 0)
+	{
+		NSString *name = [self.nameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		if ([name length] == 0)
+			name = matchmakingServer.session.displayName;
+        
+		[matchmakingServer stopAcceptingConnections];
+        
+        [self performSegueWithIdentifier:@"hostSegue" sender:self];
+        session = matchmakingServer.session;
+        nameString = name;
+        clients = matchmakingServer.connectedClients;
+    }
 }
 
 - (IBAction)exitAction:(UIButton *)sender {
