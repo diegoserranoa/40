@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MatchmakingClient.h"
 
-@interface JoinViewController : UIViewController<UITextFieldDelegate>
+@interface JoinViewController : UIViewController<UITextFieldDelegate, MatchmakingClientDelegate>
 
 @end

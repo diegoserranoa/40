@@ -30,6 +30,7 @@
 		D0A985C7196B5F7E00C676CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A985C6196B5F7E00C676CF /* AVFoundation.framework */; };
 		D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CA196B608900C676CF /* MatchmakingServer.m */; };
 		D0A985CE196B62F500C676CF /* MatchmakingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CD196B62F500C676CF /* MatchmakingClient.m */; };
+		D0A985D2196F055F00C676CF /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985D1196F055F00C676CF /* MCManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		D0A985CA196B608900C676CF /* MatchmakingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingServer.m; sourceTree = "<group>"; };
 		D0A985CC196B62F500C676CF /* MatchmakingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingClient.h; sourceTree = "<group>"; };
 		D0A985CD196B62F500C676CF /* MatchmakingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingClient.m; sourceTree = "<group>"; };
+		D0A985D0196F055F00C676CF /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
+		D0A985D1196F055F00C676CF /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 		D0A98579196B46D300C676CF /* Cuarenta_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				D0A985CF196F054200C676CF /* MultipeerConnectivity */,
 				D0A985C8196B607500C676CF /* GameKit */,
 				D0A985B9196B5C6500C676CF /* Join */,
 				D0A985B1196B552C00C676CF /* Host */,
@@ -233,6 +237,15 @@
 				D0A985CD196B62F500C676CF /* MatchmakingClient.m */,
 			);
 			name = GameKit;
+			sourceTree = "<group>";
+		};
+		D0A985CF196F054200C676CF /* MultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985D0196F055F00C676CF /* MCManager.h */,
+				D0A985D1196F055F00C676CF /* MCManager.m */,
+			);
+			name = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +353,7 @@
 				D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */,
 				D0A98580196B46D300C676CF /* main.m in Sources */,
 				D0A98584196B46D300C676CF /* CuarentaAppDelegate.m in Sources */,
+				D0A985D2196F055F00C676CF /* MCManager.m in Sources */,
 				D0A985BC196B5C7700C676CF /* JoinViewController.m in Sources */,
 				D0A9858A196B46D300C676CF /* CuarentaViewController.m in Sources */,
 				D0A985C3196B5EEE00C676CF /* LoadingViewController.m in Sources */,
@@ -551,6 +565,7 @@
 				D0A985A4196B46D300C676CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0A985A5196B46D300C676CF /* Build configuration list for PBXNativeTarget "Cuarenta_UIKitTests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +574,7 @@
 				D0A985A7196B46D300C676CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

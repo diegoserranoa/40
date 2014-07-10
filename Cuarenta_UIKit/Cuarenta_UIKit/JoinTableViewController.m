@@ -7,8 +7,11 @@
 //
 
 #import "JoinTableViewController.h"
+#import "MatchmakingClient.h"
 
-@interface JoinTableViewController ()
+@interface JoinTableViewController (){
+    MatchmakingClient *matchmakingClient;
+}
 
 @end
 
@@ -32,6 +35,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableWith:)
+                                                 name:@"ReloadJoin"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,30 +48,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)reloadTableWith:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"ReloadJoin"]){
+        NSDictionary* userInfo = notification.userInfo;
+        matchmakingClient = [userInfo objectForKey:@"matchmakingClient"];
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (matchmakingClient != nil)
+		return [matchmakingClient availableServerCount];
+	else
+		return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"JoinCell";
     
-    // Configure the cell...
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil)
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    return cell;
+	NSString *peerID = [matchmakingClient peerIDForAvailableServerAtIndex:indexPath.row];
+	cell.textLabel.text = [matchmakingClient displayNameForPeerID:peerID];
+    
+	return cell;
 }
 
 /*

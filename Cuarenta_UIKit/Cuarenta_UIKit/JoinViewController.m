@@ -7,10 +7,6 @@
 //
 
 #import "JoinViewController.h"
-#import "MatchmakingClient.h"
-
-// The name of the GameKit session.
-#define SESSION_ID @"Snap!"
 
 @interface JoinViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
@@ -42,11 +38,11 @@
 	if (matchmakingClient == nil)
 	{
 		matchmakingClient = [[MatchmakingClient alloc] init];
+        matchmakingClient.delegate = self;
 		[matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
         
 		self.nameTextField.placeholder = matchmakingClient.session.displayName;
-        // reload Table
-		//[self.tableView reloadData];
+        [self reloadData];
 	}
 }
 
@@ -70,12 +66,36 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)reloadData
+{
+    // reload Data
+    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:matchmakingClient forKey:@"matchmakingClient"];
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"ReloadJoin" object:self userInfo:userInfo];
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	[textField resignFirstResponder];
 	return NO;
+}
+
+#pragma mark - MatchmakingClientDelegate
+
+- (void)matchmakingClient:(MatchmakingClient *)client serverBecameAvailable:(NSString *)peerID
+{
+    // Reload Data
+	[self reloadData];
+}
+
+- (void)matchmakingClient:(MatchmakingClient *)client serverBecameUnavailable:(NSString *)peerID
+{
+    // Reload Data
+	[self reloadData];
 }
 
 @end

@@ -7,10 +7,7 @@
 //
 
 #import "HostViewController.h"
-#import "MatchmakingServer.h"
-
-// The name of the GameKit session.
-#define SESSION_ID @"Snap!"
+#import "CuarentaAppDelegate.h"
 
 @interface HostViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
@@ -19,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIView *tableViewContainer;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+@property (nonatomic, strong) CuarentaAppDelegate *appDelegate;
 
 @end
 
@@ -87,6 +86,15 @@
 {
 	[textField resignFirstResponder];
 	return NO;
+}
+
+-(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+    [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
+    [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

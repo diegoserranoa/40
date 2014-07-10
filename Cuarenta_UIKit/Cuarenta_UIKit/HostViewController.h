@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MatchmakingServer.h"
 
 @interface HostViewController : UIViewController<UITextFieldDelegate>
 

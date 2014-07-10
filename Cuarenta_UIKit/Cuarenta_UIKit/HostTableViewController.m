@@ -32,12 +32,36 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableWith:)
+                                                 name:@"ReloadCategorias"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)reloadTableWith:(NSNotification *) notification
+{
+    /*
+    if ([[notification name] isEqualToString:@"ReloadCategorias"]){
+        NSDictionary* userInfo = notification.userInfo;
+        self.categorias = [userInfo objectForKey:@"categorias"];
+        if ([self.categorias count] > 0) {
+            if (![[[self.categorias objectAtIndex:0] objectForKey:@"Nombre"] isEqualToString:@"Todo"]) {
+                PFObject *object = [[PFObject alloc] initWithClassName:@"Categorias"];
+                [object setObject:@"Todo" forKey:@"Nombre"];
+                [self.categorias insertObject:object atIndex:0];
+                [self.tableView reloadData];
+            }
+        }
+    }
+     */
 }
 
 #pragma mark - Table view data source
