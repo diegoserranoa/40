@@ -114,19 +114,27 @@ ClientState;
 				}
 			}
 			break;
-            
             // The client sees that a server goes away.
 		case GKPeerStateUnavailable:
 			if (clientState == ClientStateSearchingForServers)
 			{
-				if ([availableServers containsObject:peerID])
-				{
-					[availableServers removeObject:peerID];
-					[self.delegate matchmakingClient:self serverBecameUnavailable:peerID];
-				}
+                if (clientState == ClientStateSearchingForServers)
+                {
+                    if ([availableServers containsObject:peerID])
+                    {
+                        [availableServers removeObject:peerID];
+                        [self.delegate matchmakingClient:self serverBecameUnavailable:peerID];
+                    }
+                }
+			}
+            
+			// Is this the server we're currently trying to connect with?
+			if (clientState == ClientStateConnecting && [peerID isEqualToString:serverPeerID])
+			{
+				[self disconnectFromServer];
 			}
 			break;
-            
+
             // You're now connected to the server.
 		case GKPeerStateConnected:
 			if (clientState == ClientStateConnecting)

@@ -23,6 +23,7 @@
 
 @implementation HostViewController{
     MatchmakingServer *matchmakingServer;
+	QuitReason quitReason;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -78,6 +79,8 @@
 }
 
 - (IBAction)exitAction:(UIButton *)sender {
+    quitReason = QuitReasonUserQuit;
+	[matchmakingServer endSession];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -89,6 +92,26 @@
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:@"ReloadHost" object:self userInfo:userInfo];
+}
+
+- (void)hostViewController:(HostViewController *)controller didEndSessionWithReason:(QuitReason)reason
+{
+	if (reason == QuitReasonNoNetwork)
+	{
+		[self showNoNetworkAlert];
+	}
+}
+
+- (void)showNoNetworkAlert
+{
+	UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"No Network", @"No network alert title")
+                              message:NSLocalizedString(@"To use multiplayer, please enable Bluetooth or Wi-Fi in your device's Settings.", @"No network alert message")
+                              delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", @"Button: OK")
+                              otherButtonTitles:nil];
+    
+	[alertView show];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -118,6 +141,19 @@
 - (void)matchmakingServer:(MatchmakingServer *)server clientDidDisconnect:(NSString *)peerID
 {
 	[self reloadData];
+}
+
+- (void)matchmakingServerSessionDidEnd:(MatchmakingServer *)server
+{
+	matchmakingServer.delegate = nil;
+	matchmakingServer = nil;
+	[self reloadData];
+	[self hostViewController:self didEndSessionWithReason:quitReason];
+}
+
+- (void)matchmakingServerNoNetwork:(MatchmakingServer *)server
+{
+	quitReason = QuitReasonNoNetwork;
 }
 
 @end

@@ -11,4 +11,6 @@
 
 @interface HostViewController : UIViewController<UITextFieldDelegate, MatchmakingServerDelegate>
 
+- (void)hostViewController:(HostViewController *)controller didEndSessionWithReason:(QuitReason)reason;
+
 @end
