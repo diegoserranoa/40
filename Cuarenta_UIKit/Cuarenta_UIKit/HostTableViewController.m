@@ -7,8 +7,11 @@
 //
 
 #import "HostTableViewController.h"
+#import "MatchmakingServer.h"
 
-@interface HostTableViewController ()
+@interface HostTableViewController (){
+    MatchmakingServer *matchmakingServer;
+}
 
 @end
 
@@ -36,7 +39,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadTableWith:)
-                                                 name:@"ReloadCategorias"
+                                                 name:@"ReloadHost"
                                                object:nil];
 }
 
@@ -48,46 +51,46 @@
 
 -(void)reloadTableWith:(NSNotification *) notification
 {
-    /*
-    if ([[notification name] isEqualToString:@"ReloadCategorias"]){
+    if ([[notification name] isEqualToString:@"ReloadHost"]){
         NSDictionary* userInfo = notification.userInfo;
-        self.categorias = [userInfo objectForKey:@"categorias"];
-        if ([self.categorias count] > 0) {
-            if (![[[self.categorias objectAtIndex:0] objectForKey:@"Nombre"] isEqualToString:@"Todo"]) {
-                PFObject *object = [[PFObject alloc] initWithClassName:@"Categorias"];
-                [object setObject:@"Todo" forKey:@"Nombre"];
-                [self.categorias insertObject:object atIndex:0];
-                [self.tableView reloadData];
-            }
-        }
+        matchmakingServer = [userInfo objectForKey:@"matchmakingServer"];
+        [self.tableView reloadData];
     }
-     */
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (matchmakingServer != nil)
+		return [matchmakingServer connectedClientCount];
+	else
+		return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"HostCell";
     
-    // Configure the cell...
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil)
+		cell = [[PeerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    return cell;
+	NSString *peerID = [matchmakingServer peerIDForConnectedClientAtIndex:indexPath.row];
+	cell.textLabel.text = [matchmakingServer displayNameForPeerID:peerID];
+    
+	return cell;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return nil;
 }
 
 /*

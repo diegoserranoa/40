@@ -41,6 +41,7 @@
 	if (matchmakingServer == nil)
 	{
 		matchmakingServer = [[MatchmakingServer alloc] init];
+        matchmakingServer.delegate = self;
 		matchmakingServer.maxClients = 3;
 		[matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
         
@@ -80,6 +81,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)reloadData
+{
+    // reload Data
+    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:matchmakingServer forKey:@"matchmakingServer"];
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"ReloadHost" object:self userInfo:userInfo];
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -95,6 +106,18 @@
 
 -(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
     [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - MatchmakingServerDelegate
+
+- (void)matchmakingServer:(MatchmakingServer *)server clientDidConnect:(NSString *)peerID
+{
+	[self reloadData];
+}
+
+- (void)matchmakingServer:(MatchmakingServer *)server clientDidDisconnect:(NSString *)peerID
+{
+	[self reloadData];
 }
 
 @end

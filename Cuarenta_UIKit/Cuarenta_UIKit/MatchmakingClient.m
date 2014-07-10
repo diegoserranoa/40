@@ -8,18 +8,52 @@
 
 #import "MatchmakingClient.h"
 
+typedef enum
+{
+	ClientStateIdle,
+	ClientStateSearchingForServers,
+	ClientStateConnecting,
+	ClientStateConnected,
+}
+ClientState;
+
 @implementation MatchmakingClient
 {
 	NSMutableArray *availableServers;
+	ClientState clientState;
+	NSString *serverPeerID;
+}
+
+- (id)init
+{
+	if ((self = [super init]))
+	{
+		clientState = ClientStateIdle;
+	}
+	return self;
 }
 
 - (void)startSearchingForServersWithSessionID:(NSString *)sessionID
 {
-	availableServers = [NSMutableArray arrayWithCapacity:10];
+	if (clientState == ClientStateIdle)
+	{
+		clientState = ClientStateSearchingForServers;
+        
+        availableServers = [NSMutableArray arrayWithCapacity:10];
+        
+        _session = [[GKSession alloc] initWithSessionID:sessionID displayName:nil sessionMode:GKSessionModeClient];
+        _session.delegate = self;
+        _session.available = YES;
+	}
+}
+
+- (void)connectToServerWithPeerID:(NSString *)peerID
+{
+	NSAssert(clientState == ClientStateSearchingForServers, @"Wrong state");
     
-	_session = [[GKSession alloc] initWithSessionID:sessionID displayName:nil sessionMode:GKSessionModeClient];
-	_session.delegate = self;
-	_session.available = YES;
+	clientState = ClientStateConnecting;
+	serverPeerID = peerID;
+	[_session connectToPeer:peerID withTimeout:_session.disconnectTimeout];
 }
 
 - (NSArray *)availableServers
@@ -54,19 +88,25 @@
 	{
             // The client has discovered a new server.
 		case GKPeerStateAvailable:
-			if (![availableServers containsObject:peerID])
+			if (clientState == ClientStateSearchingForServers)
 			{
-				[availableServers addObject:peerID];
-				[self.delegate matchmakingClient:self serverBecameAvailable:peerID];
+				if (![availableServers containsObject:peerID])
+				{
+					[availableServers addObject:peerID];
+					[self.delegate matchmakingClient:self serverBecameAvailable:peerID];
+				}
 			}
 			break;
             
             // The client sees that a server goes away.
 		case GKPeerStateUnavailable:
-			if ([availableServers containsObject:peerID])
+			if (clientState == ClientStateSearchingForServers)
 			{
-				[availableServers removeObject:peerID];
-				[self.delegate matchmakingClient:self serverBecameUnavailable:peerID];
+				if ([availableServers containsObject:peerID])
+				{
+					[availableServers removeObject:peerID];
+					[self.delegate matchmakingClient:self serverBecameUnavailable:peerID];
+				}
 			}
 			break;
             

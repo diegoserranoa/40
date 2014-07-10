@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MatchmakingServer.h"
 
-@interface HostViewController : UIViewController<UITextFieldDelegate>
+@interface HostViewController : UIViewController<UITextFieldDelegate, MatchmakingServerDelegate>
 
 @end
