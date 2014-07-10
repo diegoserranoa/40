@@ -39,23 +39,7 @@
 {
 	[super viewDidAppear:animated];
     
-	if (matchmakingServer == nil)
-	{
-		matchmakingServer = [[MatchmakingServer alloc] init];
-        matchmakingServer.delegate = self;
-		matchmakingServer.maxClients = 3;
-		[matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
-        
-		self.nameTextField.placeholder = matchmakingServer.session.displayName;
-        /* reload Data
-        NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-        [userInfo setObject:sucursales forKey:@"sucursales"];
-        
-        NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-        [nc postNotificationName:@"ReloadSucursales" object:self userInfo:userInfo];
-		*/
-        //[xºself.tableView reloadData];
-	}
+	[self reloadData];
 }
 
 - (void)viewDidLoad
@@ -86,6 +70,15 @@
 
 - (void)reloadData
 {
+    if (matchmakingServer == nil)
+	{
+		matchmakingServer = [[MatchmakingServer alloc] init];
+        matchmakingServer.delegate = self;
+		matchmakingServer.maxClients = 3;
+		[matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
+        
+		self.nameTextField.placeholder = matchmakingServer.session.displayName;
+	}
     // reload Data
     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
     [userInfo setObject:matchmakingServer forKey:@"matchmakingServer"];

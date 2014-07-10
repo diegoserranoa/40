@@ -31,6 +31,8 @@
 		D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CA196B608900C676CF /* MatchmakingServer.m */; };
 		D0A985CE196B62F500C676CF /* MatchmakingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985CD196B62F500C676CF /* MatchmakingClient.m */; };
 		D0A985D2196F055F00C676CF /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985D1196F055F00C676CF /* MCManager.m */; };
+		D0A985D6196F46F300C676CF /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985D5196F46F300C676CF /* GameViewController.m */; };
+		D0A985DA196F479E00C676CF /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A985D9196F479E00C676CF /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,10 @@
 		D0A985CD196B62F500C676CF /* MatchmakingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingClient.m; sourceTree = "<group>"; };
 		D0A985D0196F055F00C676CF /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		D0A985D1196F055F00C676CF /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
+		D0A985D4196F46F300C676CF /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		D0A985D5196F46F300C676CF /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		D0A985D8196F479E00C676CF /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		D0A985D9196F479E00C676CF /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,7 @@
 		D0A98579196B46D300C676CF /* Cuarenta_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				D0A985D3196F46DA00C676CF /* Game */,
 				D0A985CF196F054200C676CF /* MultipeerConnectivity */,
 				D0A985C8196B607500C676CF /* GameKit */,
 				D0A985B9196B5C6500C676CF /* Join */,
@@ -248,6 +255,25 @@
 			name = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
+		D0A985D3196F46DA00C676CF /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985D7196F478F00C676CF /* Model */,
+				D0A985D4196F46F300C676CF /* GameViewController.h */,
+				D0A985D5196F46F300C676CF /* GameViewController.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		D0A985D7196F478F00C676CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0A985D8196F479E00C676CF /* Game.h */,
+				D0A985D9196F479E00C676CF /* Game.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,10 +372,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A985DA196F479E00C676CF /* Game.m in Sources */,
 				D0A985B4196B554600C676CF /* HostViewController.m in Sources */,
 				D0A985B8196B556600C676CF /* HostTableViewController.m in Sources */,
 				D0A985C0196B5C8E00C676CF /* JoinTableViewController.m in Sources */,
 				D0A985CE196B62F500C676CF /* MatchmakingClient.m in Sources */,
+				D0A985D6196F46F300C676CF /* GameViewController.m in Sources */,
 				D0A985CB196B608900C676CF /* MatchmakingServer.m in Sources */,
 				D0A98580196B46D300C676CF /* main.m in Sources */,
 				D0A98584196B46D300C676CF /* CuarentaAppDelegate.m in Sources */,

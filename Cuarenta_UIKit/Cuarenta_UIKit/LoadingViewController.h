@@ -10,4 +10,8 @@
 
 @interface LoadingViewController : UIViewController
 
+@property (weak, nonatomic) GKSession * session;
+@property (weak, nonatomic) NSString *name;
+@property (weak, nonatomic) NSString *peerID;
+
 @end

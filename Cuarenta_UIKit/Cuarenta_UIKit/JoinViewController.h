@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MatchmakingClient.h"
+#import "Game.h"
+#import "GameViewController.h"
 
 @interface JoinViewController : UIViewController<UITextFieldDelegate, MatchmakingClientDelegate>
 
 - (void)joinViewController:(JoinViewController *)controller didDisconnectWithReason:(QuitReason)reason;
+- (void)joinViewController:(JoinViewController *)controller startGameWithSession:(GKSession *)session playerName:(NSString *)name server:(NSString *)peerID;
 
 @end
